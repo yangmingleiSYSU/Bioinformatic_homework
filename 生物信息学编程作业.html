@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>生物信息学编程作业</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><p align="center">《生物信息学编程》考试题目</p></h1>
+<p><strong><p align="center">姓名:杨明磊        学号: 18110744</p></strong><br />
+并在1月18日之前发到邮箱liweizhong@mail.sysu.edu.cn。<br />
+邮件主题：生物信息学编程考试答案-【姓名】-【学号】<br />
+过期不候，请勿抄袭！</p>
+<h2>一．必答题（所有题目必须回答，每题7分，共70分）</h2>
+<h3>1. (1) 以下几个命令分别是什么意思？</h3>
+<p><code>cd .</code> 进入当前目录<br />
+   <code>cd ..</code> 进入上一级目录
+   <code>cd ~</code> 进入home家目录<br />
+   <code>cd /</code>  进入根目录<br />
+   <code>cd –</code>  进入上一次所在的目录  </p>
+<h3>(2)vim 编辑文档，如何实现文本的插入、删除？如何实现文本修改后的存储和退出Vim编辑器？</h3>
+<p>答：<code>vim</code> 打开文件默认是命令行模式下，命令行模式下可以单击x键删除单个字符，可以双击y键删除一行。单击a或者i键进入插入模式，然后就可以通过键盘写入或者删除想要操作的内容。文档编辑完毕按ESC键退出插入模式，进入命令行模式使用<code>:wq</code> 保存退出文档。   </p>
+<h3>2. Linux 的tar 命令中的“z”、“c”、“x”、“v”、“f”参数分别是什么用途？举例说明如何利用tar命令解压和压缩文件？</h3>
+<p>tar <code>c</code>:建立压缩档案 <code>z</code> ：有gzip属性，和c连用创建gzip压缩的tar包；<code>x</code> ：解压tar包；<code>v</code>：显示所有过程 ；<code>f</code>: 使用档案名字<br />
+   创建一个压缩文件：当前目录下有test目录，然后运行如下命令:<br />
+   <code>tar zcvf test.tar.gz test/</code><br />
+   解压一个压缩的文件包:<br />
+   <code>tar zxvf test.tar.gz</code>  </p>
+<h3>3. Linux 的PATH 变量有什么用途？如何在命令行加入新的变量？如何在配置文件中加入新的变量？在命令行与在配置文件中加入和修改变量，两者在用途上有什么区别？</h3>
+<p><strong>PATH 变量的用途：</strong>PATH就是一个字符串变量，当输入命令的时候LINUX会去查找PATH里面记录所有路径。比如在根目录/下可以输入命令ls,在/usr目录下也可以输入ls,但其实ls这个命令根本不在这个两个目录下，事实上当你输入命令的时候LINUX会去/bin,/usr/bin,/sbin等目录下面去找你此时输入的命令。<br />
+   <strong>命令行加入新的变量：</strong>将<code>/home/opt/bin</code> 路径加入到环境变量：<code>export PATH=$PATH:/home/opt/bin</code><br />
+   <strong>在配置文件.bashrc 中加入环境变量:</strong><br />
+   (1)针对某个用户的环境变量的设置：<code>vi</code> 编辑器打开<code>home</code>目录下的<code>.bashrc</code> 文件：<code>vim ~/.bashrc</code> 然后执行<code>source ~/.bashrc</code> 文件让配置立刻生效<br />
+   (2)针对整个系统修改环境变量<code>PATH</code>:<code>vi</code> 编辑器打开<code>/etc/profile</code>;然后加入代码<code>export PATH=$PATH:/home/opt/bin</code><br />
+   <strong>命令行和配置文件的加入变量的区别：</strong>命令行下加入环境变量只在当前的<code>shell</code>环境中起作用换个<code>shell</code>就无法起作用了，在配置文件中每一个<code>shell</code>环境都起作用  </p>
+<h3>4. 如何运用Linux命令，从附件test.fasta中提取fasta 序列的header 信息，并进一步提取序列的ID（ACC）号码。（提示：涉及到命令grep、pipe (|)、awk或sed命令的使用</h3>
+<pre><code>```
+grep '&gt;' test.fasta |awk -F &quot; &quot; '{print $2}'|sed 's/\.[0-9]//g' &gt;acc.info
+```
+</code></pre>
+
+<h3>5. 用Python写一个函数来计算一个正整数的阶乘，并将结果返回。</h3>
+<pre><code>    ```
+    def Factorial(num): 
+        a = 1
+        for i in range(1,num+1,1): 
+            a*=i 
+            return a    
+    ```
+</code></pre>
+
+<h3>6. 用Python编写一个函数，把ORF序列根据通用密码子表翻译成蛋白质序列，该函数的参数是一段ORF序列，返回值为蛋白序列。</h3>
+<pre><code>```python
+orf = &quot;ATGAGTGTGGATCCAGCTTGTCCCCAAAGCTTGCCTTGCTTTGAAGCATCCGACTGTAAAGAATCTTCACCTATGCCTGTGATTTGTGGGCCTGAAGAAAACTATCCATCCTTGCAAATGTCTTCTGCTGAGATGCCTCACACGGAGACTGTCTCTCCTCTTCCTTCCTCCATGGATCTGCTTATTCAGGACAGCCCTGATTCTTCCACCAGTCCCAAAGGCAAACAACCCACTTCTGCAGAGAAGAGTGTCGCAAAAAAGGAAGACAAGGTCCCGGTCAAGAAACAGAAGACCAGAACTGTGTTCTCTTCCACCCAGCTGTGTGTACTCAATGATAGATTTCAGAGACAGAAATACCTCAGCCTCCAGCAGATGCAAGAACTCTCCAACATCCTGAACCTCAGCTACAAACAGGTGAAGACCTGGTTCCAGAACCAGAGAATGAAATCTAAGAGGTGGCAGAAAAACAACTGGCCGAAGAATAGCAATGGTGTGACGCAGGGATGCCTGGTGAACCCGACTGGGAACCTTCCAATGTGGAGCAACCAGACCTGGAACAATTCAACCTGGAGCAACCAGACCCAGAACATCCAGTCCTGGAGCAACCACTCCTGGAACACTCAGACCTGGTGCACCCAATCCTGGAACAATCAGGCCTGGAACAGTCCCTTCTATAACTGTGGAGAGGAATCTCTGCAGTCCTGCATGCAGTTCCAGCCAAATTCTCCTGCCAGTGACTTGGAGGCTGCCTTGGAAGCTGCTGGGGAAGGCCTTAATGTAATACAGCAGACCACTAGGTATTTTAGTACTCCACAAACCATGGATTTATTCCTAAACTACTCCATGAACATGCAACCTGAAGACGTGTGA&quot;
+def translate(ORFseq):
+    import re
+    codon_dic={'GCU':'A','GCC':'A','GCA':'A','GCG':'A',
+           'CGU':'R','CGC':'R','CGA':'R','CGG':'R','AGA':'R','AGG':'R',
+           'AAU':'N','AAC':'N',
+           'GAU':'D','GAC':'D',
+           'UGU':'C','UGC':'C',
+           'GAA':'E','GAG':'E',
+           'CAA':'Q','CAG':'Q',
+           'GGU':'G','GGC':'G','GGA':'G','GGG':'G',
+           'CAU':'H','CAC':'H',
+           'AUU':'I','AUC':'I','AUA':'I',
+           'UUA':'L','UUG':'L','CUU':'L','CUC':'L','CUA':'L','CUG':'L',
+           'AAA':'K','AAG':'K',
+           'AUG':'M',
+           'UUU':'F','UUC':'F',
+           'CCU':'P','CCC':'P','CCA':'P','CCG':'P',
+           'UCU':'S','UCC':'S','UCA':'S','UCG':'S','AGU':'S','AGC':'S',
+           'ACU':'T','ACC':'T','ACA':'T','ACG':'T',
+           'UGG':'W','UAU':'Y','UAC':'Y',
+           'GUU':'V','GUC':'V','GUA':'V','GUG':'V',
+           'UAG':'STOP','UGA':'STOP','UAA':'STOP'}
+    if re.search('T',ORFseq):
+        ORFseq = re.sub('T','U',ORFseq)
+    def trans(ORFseq):
+        AAseq = &quot;&quot;
+        for i in range(0,len(ORFseq),3):
+            AAseq += codon_dic[ORFseq[i:i+3]]
+        return AAseq
+    AAseq = trans(ORFseq)
+    AAseq=re.sub(&quot;STOP&quot;,&quot;*&quot;,AAseq)
+    return AAseq
+translate(orf)
+
+```  
+</code></pre>
+
+<p>github 地址：<a href="https://github.com/yangmingleiSYSU/Bioinformatic_homework/blob/master/OrfTranslate.py">https://github.com/yangmingleiSYSU/Bioinformatic_homework/blob/master/OrfTranslate.py</a></p>
+<h3>7. 用Python代码写一个函数，参数为一段DNA序列，返回该序列的GC含量。</h3>
+<pre><code>```python
+def GCstat(DNAseq):
+    GCList=[&quot;G&quot;,&quot;C&quot;]
+    GCtotal = 0
+    Total=len(DNAseq)
+    for i in DNAseq:
+        if i in GCList:
+            GCtotal+=1
+    GCpercent = float(GCtotal)/Total
+    return GCpercent
+```  
+</code></pre>
+
+<h3>8. 请简述R语言的5种数据结构？</h3>
+<p><strong>答：</strong>1）向量（vector）是由相同基本类型元素组成的序列，相当于一维数组。 
+2）矩阵（matrix)是将数据用行和列排列的长方形表格，它是二维的数组，其单元必须是相同的数据类型，通常用列来表示不同的变量，用行表示各个对象。<br />
+3）数组（array）可以看作是带有多个下标的类型相同的元素的集合。数组的生成函数是array（）。<br />
+4）数据框（data frame）是一种矩阵形式的数据，但数据框中各列可以是不同类型的数据。数据框每列是一个变量，每行是一个观测 。<br />
+5）列表是一个对象的有序集合构成的对象，列表中包含的对象又称为它的分量（components），分量可以是不同的模式或（和）类型，可以是数据框，向量等其它对象。  </p>
+<h3>9．R语言编程中，有哪些处理缺失数据的高级方法？</h3>
+<h5>答：识别缺失数据：</h5>
+<p>（1）完全随机缺失：若某变量的缺失数据与其他任何观测或未观测变量都不相关，则数据为完全随机缺失（MCAR）。<br />
+（2）随机缺失：若某变量上的缺失数据与其他观测变量相关，与它自己的未观测值不相关，则数据为随机缺失（MAR）。<br />
+（3）非随机缺失：若缺失数据不属于MCAR或MAR，则数据为非随机缺失（NIMAR）。  </p>
+<h5>检查导致数据缺失的原因：</h5>
+<p>看看缺失数据的比例有多大；缺失数据是否集中在少数几个变量上，抑或是广泛存在；缺失是否是随机产生的；缺失数据间的相关性与可观测数据间的相关性怎么样，是否可以表明产生缺失值的机制。</p>
+<h5>删除包含缺失值的实例或用合理的数值代替（插补）缺失值：</h5>
+<p>（1）完整实例分析（行删除）：函数<code>complete.cases（）</code>、<code>na.omit（）</code>可用来存储没有缺失值的数据框或矩阵形式的实例（行）。
+（2）多重插补：多重插补（MI）是一种基于重复模拟的处理缺失值的方法。MI从一个包含缺失值的数据集中生成一组完整的数据集。每个模拟数据集中，缺失数据将使用蒙特卡洛方法来填补。可用到的包Amelia、mice和mi包.
+ （3）成对删除：处理含缺失值的数据集时，成对删除常作为行删除的备选方法使用。对于成对删除，观测只是当它含缺失数据的变量涉及某个特定分析时才会被删除。
+（4） 简单（非随机）插补：简单插补，即用某个值（如均值、中位数或众数）来替换变量中的缺失值。注意，替换是非随机的，这意味着不会引入随机误差（与多重衬托不同）。  </p>
+<h3>10. 请简述在统计假设检验的核心思想和两大类型错误。</h3>
+<p><strong>答：</strong>统计假设检验的核心思想是，首先作出零假设，然后计算零假设中涉及到的统计量，如果实际计算结果与零假设矛盾，则拒绝零假设，接受备择假设，反之则接受零假设，拒绝备择假设。假设检验是一种常用的证明方法，因为全称命题只能被否证而不能被证明，所以要从零假设的反面着手证明。<br />
+<strong>第一类错误:</strong> 零假设是真的，但决定是拒绝零假设，此类错误称为第一类错误，“拒真”，增加假阳性。<br />
+<strong>第二类错误：</strong>零假设是假的，但决定是接受零假设，此类错误称为第二类错误，“纳假”，增加假阴性。</p>
+<h2>二，选答题（请选择下面2题进行回答，每题15分，共30分）</h2>
+<h3>1. 本题考查如何在Linux下安装和运行软件。</h3>
+<h4>（a）详述如何下载、安装、测试Linux版的NCBI BLAST+软件；</h4>
+<p>答：下载软件包：<br />
+<code>wget -c ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.8.1+-x64-linux.tar.gz</code>
+解压软件包：<code>tar zxvf ncbi-blast-2.8.1+-x64-linux.tar.gz</code> <br />
+进入bin 目录找到可执行文件：<code>cd ncbi-blast-2.8.1+/bin</code>
+添加环境变量：<code>vim ~/.bashrc</code> 打开配置文件，i进入编辑模式添加<code>PATH=$PATH:your_path/ncbi-blast-2.8.1+/bin</code>然后ESC 退出编辑模式；<code>wq</code> 保存并退出。<br />
+让环境变量立即生效：<code>source ~/.bashrc</code>;<br />
+在命令行下执行：<code>blastp -help</code> 查看是否安装成功。  </p>
+<h4>（b）详述如何建立索引BLAST数据库和运行NCBI BLAST+里的BLASTP或BLASTN；</h4>
+<p>答：以swissprot 蛋白fasta格式数据建立数据库索引并检索：  </p>
+<p><code>makeblastdb -in swissprot -dbtype prot -parse_seqids  -out swissprot</code>  </p>
+<p><code>-in</code> 为要建立的数据库fasta文件这里是swissprot；<code>-dbtype</code> 为数据库的数据类型这里为蛋白数据库prot ;<code>-out</code> 建立索引后的数据库名称这仍然是swissprot （可以是其它的）。 
+运行完以上命令，查看swissprot 所在的目录下是否有<code>swissprot.phr ,swissprot.pin,swissprot.psq</code> 三个文件。如果有说明建立数据库索引成功。
+运行<code>blastp</code>软件以seq.fa作为query文件，seq.fa 为蛋白序列文件，运行命令如下：  </p>
+<p><code>blastp -query seq.fa -out seq.blast -db swissprot -outfmt 6 -evalue 1e-5  -num_threads 8</code>  </p>
+<p><code>-db</code> 为要检索的目标数据库这里是<code>swissprot</code>数据库 <code>-query</code> 为需要检索的序列这里为seq.fa ；<code>-out</code> 输出的结果文件名称这里是seq.blast；<br />
+<code>-outfmt</code> 输出结果的文件格式这里设置为6 = Tabular 格式; <code>-evalue</code> 为比对过程中对检索到的序列设置的得分阈值，低于这个阈值的认为相似度比较高；<code>-num_threads</code> 为运行该程序所使用线程数</p>
+<h4>（c）如何通过grep、pipe (|)、awk等命令提取BLAST结果匹配的ID/ACC号码？</h4>
+<p>(c) 针对第二步中生成的结果，提取BLAST结果匹配的ID/ACC号码：因为输出结果已经设定为tab分割的文本文件，直接使用awk提取其第二列即可，命令行如下：<br />
+<code>awk '{print $2}' seq.blast &gt; acc.info</code><br />
+acc.info 每一行即为比对得到的序列ID信息</p>
+<h3>2. 下载人“NANOG”基因的mRNA序列，用Python写一个脚本，包括读取该序列文件，寻找该序列最长的ORF，并把该ORF序列输出到文件。</h3>
+<p><strong>在NCBI 下载NANOG mRNA序列</strong></p>
+<blockquote>
+<p>NM_001297698.1 Homo sapiens Nanog homeobox (NANOG), transcript variant 2, mRNA<br />
+TTCATTATAAATCTAGAGACTCCAGGATTTTAACGTTCTGCTGGACTGAGCTGGTTGCCTCATGTTATTA
+TGCAGGCAACTCACTTTATCCCAATTTCTTGATACTTTTCCTTCTGGAGGTCCTATTTCTCTAACATCTT
+CCAGAAAAGTCTTAAAGCTGCCTTAACCTTTTTTCCAGTCCACCTCTTAAATTTTTTCCTCCTCTTCCTC
+TATACTAACATGAGTGTGGATCCAGCTTGTCCCCAAAGCTTGCCTTGCTTTGAAGCATCCGACTGTAAAG
+AATCTTCACCTATGCCTGTGATTTGTGGGCCTGAAGAAAACTATCCATCCTTGCAAATGTCTTCTGCTGA
+GATGCCTCACACGGAGACTGTCTCTCCTCTTCCTTCCTCCATGGATCTGCTTATTCAGGACAGCCCTGAT
+TCTTCCACCAGTCCCAAAGGCAAACAACCCACTTCTGCAGAGAAGAGTGTCGCAAAAAAGGAAGACAAGG
+TCCCGGTCAAGAAACAGAAGACCAGAACTGTGTTCTCTTCCACCCAGCTGTGTGTACTCAATGATAGATT
+TCAGAGACAGAAATACCTCAGCCTCCAGCAGATGCAAGAACTCTCCAACATCCTGAACCTCAGCTACAAA
+CAGGTGAAGACCTGGTTCCAGAACCAGAGAATGAAATCTAAGAGGTGGCAGAAAAACAACTGGCCGAAGA
+ATAGCAATGGTGTGACGCAGGGATGCCTGGTGAACCCGACTGGGAACCTTCCAATGTGGAGCAACCAGAC
+CTGGAACAATTCAACCTGGAGCAACCAGACCCAGAACATCCAGTCCTGGAGCAACCACTCCTGGAACACT
+CAGACCTGGTGCACCCAATCCTGGAACAATCAGGCCTGGAACAGTCCCTTCTATAACTGTGGAGAGGAAT
+CTCTGCAGTCCTGCATGCAGTTCCAGCCAAATTCTCCTGCCAGTGACTTGGAGGCTGCCTTGGAAGCTGC
+TGGGGAAGGCCTTAATGTAATACAGCAGACCACTAGGTATTTTAGTACTCCACAAACCATGGATTTATTC
+CTAAACTACTCCATGAACATGCAACCTGAAGACGTGTGAAGATGAGTGAAACTGATATTACTCAATTTCA
+GTCTGGACACTGGCTGAATCCTTCCTCTCCCCTCCTCCCATCCCTCATAGGATTTTTCTTGTTTGGAAAC
+CACGTGTTCTGGTTTCCATGATGCCCATCCAGTCAATCTCATGGAGGGTGGAGTATGGTTGGAGCCTAAT
+CAGCGAGGTTTCTTTTTTTTTTTTTTTCCTATTGGATCTTCCTGGAGAAAATACTTTTTTTTTTTTTTTT
+TTTGAAACGGAGTCTTGCTCTGTCGCCCAGGCTGGAGTGCAGTGGCGCGGTCTTGGCTCACTGCAAGCTC
+CGTCTCCCGGGTTCACGCCATTCTCCTGCCTCAGCCTCCCGAGCAGCTGGGACTACAGGCGCCCGCCACC
+TCGCCCGGCTAATATTTTGTATTTTTAGTAGAGACGGGGTTTCACTGTGTTAGCCAGGATGGTCTCGATC
+TCCTGACCTTGTGATCCACCCGCCTCGGCCTCCCTAACAGCTGGGATTTACAGGCGTGAGCCACCGCGCC
+CTGCCTAGAAAAGACATTTTAATAACCTTGGCTGCCGTCTCTGGCTATAGATAAGTAGATCTAATACTAG
+TTTGGATATCTTTAGGGTTTAGAATCTAACCTCAAGAATAAGAAATACAAGTACAAATTGGTGATGAAGA
+TGTATTCGTATTGTTTGGGATTGGGAGGCTTTGCTTATTTTTTAAAAACTATTGAGGTAAAGGGTTAAGC
+TGTAACATACTTAATTGATTTCTTACCGTTTTTGGCTCTGTTTTGCTATATCCCCTAATTTGTTGGTTGT
+GCTAATCTTTGTAGAAAGAGGTCTCGTATTTGCTGCATCGTAATGACATGAGTACTGCTTTAGTTGGTTT
+AAGTTCAAATGAATGAAACAACTATTTTTCCTTTAGTTGATTTTACCCTGATTTCACCGAGTGTTTCAAT
+GAGTAAATATACAGCTTAAACATAA</p>
+</blockquote>
+<p>脚本代码保存为MaxLenORF_modify.py：<br />
+	```python  </p>
+<pre><code>import sys
+import re
+filein = open(sys.argv[1],'r')
+seq =''
+for i in filein:
+    if re.search('^&gt;',i):
+        pass
+    else:
+        seq+=i.strip()
+filein.close()
+print(seq)
+
+
+ATGs=[i.span() for i in re.finditer('(ATG)',seq)]
+ORFs=[]
+for i in ATGs:
+    start=i[0]
+    end=i[1]
+    print(end)
+    while(end &lt; len(seq)):
+        if seq[end:(end+3)] == &quot;TGA&quot; or seq[end:(end+3)] == &quot;TAA&quot; or seq[end:(end+3)] == &quot;TAG&quot;:
+            end+=3
+            ORFs.append((seq[start:end],end-start,[start,end]))
+            end=len(seq)
+        else:
+            end+=3
+ORFlens=[i[1] for i in ORFs]
+ORFseqs=[i[0] for i in ORFs]
+MaxLenORF=ORFseqs[ORFlens.index(max(ORFlens))]
+fileout = open(&quot;MaxLenORF.fa&quot;,&quot;w&quot;)
+fileout.write('&gt;MaxLenORF+\n'+MaxLenORF)
+fileout.close()
+print('ok')
+```
+</code></pre>
+
+<p>运行代码<br />
+<code>python3 MaxLenORF_modify.py NANOG.fa</code><br />
+github 地址：<a href="https://github.com/yangmingleiSYSU/Bioinformatic_homework/blob/master/MaxLenORF_modify.py">https://github.com/yangmingleiSYSU/Bioinformatic<em>homework/blob/master/MaxLenORF</em>modify.py</a><br />
+生成结果文件为MaxLenORF.fa</p>
+<blockquote>
+<p>MaxLenORF+<br />
+ATGAGTGTGGATCCAGCTTGTCCCCAAAGCTTGCCTTGCTTTGAAGCATCCGACTGTAAAGAATCTTCACCTATG  CCTGTGATTTGTGGGCCTGAAGAAAACTATCCATCCTTGCAAATGTCTTCTGCTGAGATGCCTCACACGGAGACT  GTCTCTCCTCTTCCTTCCTCCATGGATCTGCTTATTCAGGACAGCCCTGATTCTTCCACCAGTCCCAAAGGCAAA  CAACCCACTTCTGCAGAGAAGAGTGTCGCAAAAAAGGAAGACAAGGTCCCGGTCAAGAAACAGAAGACCAGAACT  GTGTTCTCTTCCACCCAGCTGTGTGTACTCAATGATAGATTTCAGAGACAGAAATACCTCAGCCTCCAGCAGATG  CAAGAACTCTCCAACATCCTGAACCTCAGCTACAAACAGGTGAAGACCTGGTTCCAGAACCAGAGAATGAAATCT  AAGAGGTGGCAGAAAAACAACTGGCCGAAGAATAGCAATGGTGTGACGCAGGGATGCCTGGTGAACCCGACTGGG  AACCTTCCAATGTGGAGCAACCAGACCTGGAACAATTCAACCTGGAGCAACCAGACCCAGAACATCCAGTCCTGG  AGCAACCACTCCTGGAACACTCAGACCTGGTGCACCCAATCCTGGAACAATCAGGCCTGGAACAGTCCCTTCTAT  AACTGTGGAGAGGAATCTCTGCAGTCCTGCATGCAGTTCCAGCCAAATTCTCCTGCCAGTGACTTGGAGGCTGCC  TTGGAAGCTGCTGGGGAAGGCCTTAATGTAATACAGCAGACCACTAGGTATTTTAGTACTCCACAAACCATGGAT  TTATTCCTAAACTACTCCATGAACATGCAACCTGAAGACGTGTGA</p>
+</blockquote>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
